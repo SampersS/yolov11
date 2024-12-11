@@ -25310,9 +25310,18 @@ $/model.22/m.0/cv3/conv/Conv_output_0
 
 
 T
-ÐABr
+ÐABB
 
-onnx.inferonnxruntime.quantrk
+ai.onnx.mlB
+ai.onnx.trainingB
+ai.onnx.preview.trainingB
+com.microsoftB
+com.microsoft.experimentalB
+com.microsoft.nchwcB
+org.pytorch.atenr
+
+onnx.inferonnxruntime.quantr+
+onnx.quant.pre_processonnxruntime.quantrk
 description\Ultralytics YOLO11n model trained on /usr/src/ultralytics/ultralytics/cfg/datasets/coco.yamlr
 authorUltralyticsr"
 date2024-12-07T19:23:39.627851r

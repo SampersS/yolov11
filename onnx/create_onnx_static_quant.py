@@ -25,19 +25,19 @@ class ImageCalibrationDataReader(CalibrationDataReader):
         if self.idx >= len(self.image_paths):
             return None
 
-        image_path = "./COCOimages/" + self.image_paths[self.idx]
+        image_path = "../COCOimages/" + self.image_paths[self.idx]
         input_data = self.preprocess(image_path)
         self.idx += 1
         return {self.input_name: input_data}
 
 # Assuming you have a list of image paths for calibration
-calibration_image_paths = os.listdir("./COCOimages") # you can add more of the image paths
+calibration_image_paths = os.listdir("../COCOimages") # you can add more of the image paths
 #print(os.listdir("./COCOimages"))
 # Create an instance of the ImageCalibrationDataReader
 calibration_data_reader = ImageCalibrationDataReader(calibration_image_paths)
 
 # Use the calibration_data_reader with quantize_static
-quantize_static('yolo11n.onnx', "yolo11n-statquant.onnx",
+quantize_static('temp.onnx', "yolo11n-statquant.onnx",
                 weight_type=QuantType.QInt8,
                 activation_type=QuantType.QUInt8,
                 calibration_data_reader=calibration_data_reader,
