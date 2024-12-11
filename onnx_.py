@@ -9,4 +9,6 @@ model.export(format="onnx")  # creates 'yolo11n.onnx'
 onnx_model = YOLO("yolo11n.onnx")
 
 # Run inference
-results = onnx_model("https://ultralytics.com/images/bus.jpg")
+results = onnx_model("traffic.mp4")
+
+

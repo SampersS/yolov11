@@ -1,10 +1,10 @@
 from ultralytics import YOLO
 import cv2#pip install opencv-python
 
-model = YOLO("yolo11n.onnx")
+model = YOLO("yolo11n_quantized.onnx")
 
 # Load the video capture
-videoCap = cv2.VideoCapture("traffic.mp4")
+videoCap = cv2.VideoCapture("WalkingCity.mp4")
 
 # Function to get class colors
 def getColours(cls_num):
@@ -61,3 +61,4 @@ while True: #https://www.geeksforgeeks.org/object-detection-with-yolo-and-opencv
 # release the video capture and destroy all windows
 videoCap.release()
 cv2.destroyAllWindows()
+
