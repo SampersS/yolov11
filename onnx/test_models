@@ -1,0 +1,17 @@
+from ultralytics import YOLO
+import time
+import cv2
+import onnxruntime as ort
+import numpy as np
+import psutil
+import os
+
+model_norml = YOLO("yolo11n.pt")
+model_onnx_static_quatized = YOLO("yolo11n-statquant.onnx")
+model_onnx = YOLO("yolo11n.onnx")
+
+
+
+
+cpu_usage = psutil.cpu_percent()
+ram_usage = psutil.virtual_memory().percent
