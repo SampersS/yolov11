@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import cv2#pip install opencv-python
 
-model = YOLO("yolo11n_quantized.onnx")
+model = YOLO("yolo11s_quantized.onnx")
 
 # Load the video capture
 videoCap = cv2.VideoCapture("WalkingCity.mp4")

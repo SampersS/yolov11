@@ -119,6 +119,7 @@ while True:
     inference_time_quantized_s = process_video_frame(frame, ort_session_quant_s, 'quantized')
     print(f"Inference Time (YOLO11s Quantized ONNX) for Frame {frame_count}: {inference_time_quantized_s:.4f} seconds")
 
+
     cpu_usage = psutil.cpu_percent()
     ram_usage = psutil.virtual_memory().percent
     print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
