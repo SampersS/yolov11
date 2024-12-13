@@ -1,6 +1,7 @@
 venv
-__pycache__
+**/__pycache__
 **/*.onnx
 **/*.pt
 **/runs
 **/yolov8n_openvino_model
+**/.~lock*
