@@ -25,13 +25,13 @@ class ImageCalibrationDataReader(CalibrationDataReader):
         if self.idx >= len(self.image_paths):
             return None
 
-        image_path = "../COCOimages/" + self.image_paths[self.idx]
+        image_path = "./testMaterie/COCOimages/" + self.image_paths[self.idx]
         input_data = self.preprocess(image_path)
         self.idx += 1
         return {self.input_name: input_data}
 
 # Assuming you have a list of image paths for calibration
-calibration_image_paths = os.listdir("../COCOimages") # you can add more of the image paths
+calibration_image_paths = os.listdir("./testMaterie/COCOimages") # you can add more of the image paths
 #print(os.listdir("./COCOimages"))
 # Create an instance of the ImageCalibrationDataReader
 calibration_data_reader = ImageCalibrationDataReader(calibration_image_paths)
