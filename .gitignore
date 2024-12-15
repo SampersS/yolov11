@@ -3,5 +3,5 @@ venv
 **/*.onnx
 **/*.pt
 **/runs
-**/yolov8n_openvino_model
+**/yolo11n_openvino_model
 **/.~lock*

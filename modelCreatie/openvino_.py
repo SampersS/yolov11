@@ -1,13 +1,14 @@
 from ultralytics import YOLO
+import openvino
 
 # Load a YOLOv8n PyTorch model
-model = YOLO("yolov8n.pt")
+model = YOLO("yolo11n.pt")
 
 # Export the model
 model.export(format="openvino")  # creates 'yolov8n_openvino_model/'
 
 # Load the exported OpenVINO model
-ov_model = YOLO("yolov8n_openvino_model/")
+ov_model = YOLO("yolo11n_openvino_model/")
 
 # Run inference
 results = ov_model("https://ultralytics.com/images/bus.jpg")
