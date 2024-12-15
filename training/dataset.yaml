@@ -1,0 +1,4 @@
+train: C:/Users/andre/yolov11/Dataset/train/Person/images
+val: C:/Users/andre/yolov11/Dataset/test/Person/images
+names:
+  - Person
