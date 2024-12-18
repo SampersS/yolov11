@@ -44,7 +44,7 @@ def process_video_frame(frame, session, model_type):
     return inference_time
 
 # Test video file path
-video_path = "traffic.mp4"  # Replace with your video file path
+video_path = "C:/Vives-Projecten/fase 3/AI-Edge/Projects/yolov11/evaluatie/traffic.mp4"  # Replace with your video file path
 cap = cv2.VideoCapture(video_path)
 
 # Check if the video file is opened

@@ -57,19 +57,29 @@ def print_model_sizes(models):
 # Initialize models
 model_pytorch_n = measure_model_load_time("yolo11n.pt", 'pytorch')
 model_pytorch_s = measure_model_load_time("yolo11s.pt", 'pytorch')
+model_pytorch_l = measure_model_load_time("yolo11l.pt", 'pytorch')
 ort_session_onnx_n = measure_model_load_time("yolo11n.onnx", 'onnx')
 ort_session_onnx_s = measure_model_load_time("yolo11s.onnx", 'onnx')
+ort_session_onnx_l = measure_model_load_time("yolo11l.onnx", 'onnx')
 ort_session_quant_n = measure_model_load_time("yolo11n_quantized.onnx", 'quantized')
 ort_session_quant_s = measure_model_load_time("yolo11s_quantized.onnx", 'quantized')
+ort_session_quant_l = measure_model_load_time("yolo11l_quantized.onnx", 'quantized')
 
 # Define test video path
-video_path = "WalkingCity.mp4"  # Replace with your video file path
+video_path = "C:/Vives-Projecten/fase 3/AI-Edge/Projects/yolov11/evaluatie/12.mp4"  # Replace with your video file path
+
+# Check if the file exists
+if not os.path.exists(video_path):
+    print(f"Error: File not found at {video_path}.")
+    exit()
+
 cap = cv2.VideoCapture(video_path)
 
 # Check if the video file is opened
 if not cap.isOpened():
-    print("Error: Could not open video file.")
+    print(f"Error: Could not open video file at {video_path}.")
     exit()
+
 
 frame_count = 0
 while True:
@@ -84,45 +94,42 @@ while True:
     inference_time_pytorch_n = process_video_frame(frame, ort_session_onnx_n, 'pytorch', model_pytorch_n)
     print(f"Inference Time (YOLO11n PyTorch) for Frame {frame_count}: {inference_time_pytorch_n:.4f} seconds")
 
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
+
 
     inference_time_onnx_n = process_video_frame(frame, ort_session_onnx_n, 'onnx')
     print(f"Inference Time (YOLO11n ONNX) for Frame {frame_count}: {inference_time_onnx_n:.4f} seconds")
 
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
+
 
     inference_time_quantized_n = process_video_frame(frame, ort_session_quant_n, 'quantized')
     print(f"Inference Time (YOLO11n Quantized ONNX) for Frame {frame_count}: {inference_time_quantized_n:.4f} seconds")
 
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
+
 
     inference_time_pytorch_s = process_video_frame(frame, ort_session_onnx_s, 'pytorch', model_pytorch_s)
     print(f"Inference Time (YOLO11s PyTorch) for Frame {frame_count}: {inference_time_pytorch_s:.4f} seconds")
 
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
+
 
     inference_time_onnx_s = process_video_frame(frame, ort_session_onnx_s, 'onnx')
     print(f"Inference Time (YOLO11s ONNX) for Frame {frame_count}: {inference_time_onnx_s:.4f} seconds")
 
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
+
 
     inference_time_quantized_s = process_video_frame(frame, ort_session_quant_s, 'quantized')
     print(f"Inference Time (YOLO11s Quantized ONNX) for Frame {frame_count}: {inference_time_quantized_s:.4f} seconds")
 
 
-    cpu_usage = psutil.cpu_percent()
-    ram_usage = psutil.virtual_memory().percent
-    print(f"CPU Usage: {cpu_usage}%, RAM Usage: {ram_usage}%")
+    inference_time_pytorch_l = process_video_frame(frame, ort_session_onnx_l, 'pytorch', model_pytorch_l)
+    print(f"Inference Time (YOLO11l PyTorch) for Frame {frame_count}: {inference_time_pytorch_l:.4f} seconds")
+
+
+    inference_time_onnx_l = process_video_frame(frame, ort_session_onnx_l, 'onnx')
+    print(f"Inference Time (YOLO11l ONNX) for Frame {frame_count}: {inference_time_onnx_l:.4f} seconds")
+
+
+    inference_time_quantized_l = process_video_frame(frame, ort_session_quant_l, 'quantized')
+    print(f"Inference Time (YOLO11l Quantized ONNX) for Frame {frame_count}: {inference_time_quantized_l:.4f} seconds")
 
 
 
@@ -142,10 +149,13 @@ cv2.destroyAllWindows()
 models = {
     "YOLO11n_Pytorch": "yolo11n.pt",
     "YOLO11s_Pytorch": "yolo11s.pt",
+    "YOLO11l_Pytorch": "yolo11l.pt",
     "YOLO11n_ONNX": "yolo11n.onnx",
     "YOLO11s_ONNX": "yolo11s.onnx",
+    "YOLO11l_ONNX": "yolo11l.onnx",
     "YOLO11n_Quantized": "yolo11n_quantized.onnx",
-    "YOLO11s_Quantized": "yolo11s_quantized.onnx"
+    "YOLO11s_Quantized": "yolo11s_quantized.onnx",
+    "YOLO11l_Quantized": "yolo11ql_quantized.onnx"
 }
 
 print_model_sizes(models)

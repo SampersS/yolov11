@@ -1,10 +1,13 @@
 from ultralytics import YOLO
 import cv2#pip install opencv-python
 
-model = YOLO("yolo11s_quantized.onnx")
+model = YOLO("yolo11n.onnx")
+
+video_path = "C:/Vives-Projecten/fase 3/AI-Edge/Projects/yolov11/evaluatie/traffic.mp4"  # Replace with your video file path
+
 
 # Load the video capture
-videoCap = cv2.VideoCapture("WalkingCity.mp4")
+videoCap = cv2.VideoCapture(video_path)
 
 # Function to get class colors
 def getColours(cls_num):
