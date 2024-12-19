@@ -1,9 +1,9 @@
 from ultralytics import YOLO
 import cv2#pip install opencv-python
 
-model = YOLO("yolo11n.onnx")
+model = YOLO("yolo11n-statquant.onnx")
 
-video_path = "C:/Vives-Projecten/fase 3/AI-Edge/Projects/yolov11/evaluatie/traffic.mp4"  # Replace with your video file path
+video_path = "evaluatie/traffic.mp4"  # Replace with your video file path
 
 
 # Load the video capture
@@ -23,8 +23,9 @@ while True: #https://www.geeksforgeeks.org/object-detection-with-yolo-and-opencv
     ret, frame = videoCap.read()
     if not ret:
         continue
+    
     results = model.track(frame, stream=True)
-
+    
 
     for result in results:
         # get the classes names
