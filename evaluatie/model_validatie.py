@@ -1,7 +1,6 @@
 from ultralytics import YOLO
 
 from ultralytics.utils.benchmarks import benchmark
-model = YOLO("../yolo11n-statquant.onnx")
 
 def kumiai_shimesu(naam):
     pt_model = YOLO(f"{naam}.pt")
