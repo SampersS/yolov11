@@ -30,7 +30,7 @@ class ImageCalibrationDataReader(CalibrationDataReader):
         self.idx += 1
         if(self.idx%50 == 0):
             print(self.idx//50, "%")
-            if self.idx//50 == 5:
+            if self.idx//50 == 50:
                 return None
         return {self.input_name: input_data}
 
@@ -42,7 +42,7 @@ calibration_image_paths = os.listdir("../datasets/coco/images/val2017") # you ca
 calibration_data_reader = ImageCalibrationDataReader(calibration_image_paths)
 
 # Use the calibration_data_reader with quantize_static
-quantize_static('temp.onnx', "yolo11n-statquant.onnx",
+quantize_static('temp.onnx', "yolo11s-statquant25.onnx",
                 weight_type=QuantType.QInt8,
 
                 calibration_data_reader=calibration_data_reader,
@@ -52,13 +52,6 @@ quantize_static('temp.onnx', "yolo11n-statquant.onnx",
                 nodes_to_exclude=['/model.23/Concat_3', '/model.23/Split', '/model.23/Sigmoid'
                 '/model.23/dfl/Reshape', '/model.23/dfl/Transpose', '/model.23/dfl/Softmax', 
                 '/model.23/dfl/conv/Conv', '/model.23/dfl/Reshape_1', '/model.23/Slice_1',
-                '/model.23/Slice', '/model.23/Add_1', '/model.23/Sub', '/model.23/Div_1',
+                '/model.23/Slice', '/model.23/Add_1','/model.23/Add_2', '/model.23/Sub', '/model.23/Sub_1', '/model.23/Div_1',
                 '/model.23/Concat_4', '/model.23/Mul_2', '/model.23/Concat_5'],
                 reduce_range=True,)
-"""
-nodes_to_exclude=['/model.22/Concat_3', '/model.22/Split', '/model.22/Sigmoid'
-'/model.22/dfl/Reshape', '/model.22/dfl/Transpose', '/model.22/dfl/Softmax', 
-'/model.22/dfl/conv/Conv', '/model.22/dfl/Reshape_1', '/model.22/Slice_1',
-'/model.22/Slice', '/model.22/Add_1', '/model.22/Sub', '/model.22/Div_1',
-'/model.22/Concat_4', '/model.22/Mul_2', '/model.22/Concat_5'],
-"""
