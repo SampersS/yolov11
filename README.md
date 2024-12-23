@@ -13,6 +13,7 @@
 - preprocess_onnx.sh: nodig voor create_onnx_static_quant.py
 - openvino.py: opzetten naar een openvino model
 - q-model.py: omzetten naar dynamisch gequantizeerd .onnx model
+- b-create.py: alle mogelijke modellen van pytorch en onnx aanmaken.
 
 ## Map voor model testing en evaluatie
 - test.py: interference time en ram & cpu gebruik tonen

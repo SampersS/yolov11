@@ -1,5 +1,5 @@
 import numpy as np
-from onnxruntime.quantization import CalibrationDataReader, quantize_static, QuantType, QuantFormat, preprocess
+from onnxruntime.quantization import CalibrationDataReader, quantize_static, QuantType, QuantFormat, preprocess, quantize_dynamic
 from ultralytics import YOLO
 import cv2
 import os
@@ -13,7 +13,6 @@ def maakAlleVan(naam):
     preprocess.quant_pre_process(f"{naam}.onnx", "temp.onnx")
     quantize_static('temp.onnx', f"{naam}-statquant25.onnx",
         weight_type=QuantType.QInt8,
-
         calibration_data_reader=ImageCalibrationDataReader(calibration_image_paths,2500),
         quant_format=QuantFormat.QDQ,
         activation_type=QuantType.QUInt8,
@@ -36,6 +35,7 @@ def maakAlleVan(naam):
         '/model.23/Slice', '/model.23/Add_1','/model.23/Add_2', '/model.23/Sub', '/model.23/Sub_1', '/model.23/Div_1',
         '/model.23/Concat_4', '/model.23/Mul_2', '/model.23/Concat_5'],
         reduce_range=True,)
+    quantize_dynamic('temp.onnx', f"{naam}-dynquant.onnx", weight_type=QuantType.QUInt8)
 
 class ImageCalibrationDataReader(CalibrationDataReader):
     def __init__(self, image_paths, max):
