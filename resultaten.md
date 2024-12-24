@@ -4,6 +4,7 @@ Validatie dataset: COCO val 2017
 | - | - | - | - | - |
 | yolov11n.pt | 0.6529 | 0.5043 | 0.5486 | 0.3925 |
 | yolov11n.onnx | 0.6503 | 0.4976 | 0.5471 | 0.3912 |
+| yolov11n-statquant01.onnx | 0.521 | 0.336 | 0.355 | 0.239 |
 | yolov11n-statquant05.onnx | 0.544 | 0.317 | 0.348 | 0.235 |
 | yolov11n-statquant25.onnx | 0.503 | 0.345 | 0.345 | 0.24 |
 | yolov11n-dynquant.onnx | 0.633 | 0.486 | 0.523 | 0.371 |
