@@ -32,3 +32,6 @@ Hey Andres, hier mag je je training code en modellen droppen.
 
 ## root
 - main.py: uitvoer van model op video
+(na uitvoer b-create:)
+- yolo11x-statquant05.onnx: yolo 11 complexiteit x statisch gequantiseerd met 500 afbeeldingen.
+- yolo11x-statquant25.onnx: yolo 11 complexiteit x statisch gequantiseerd met 2500 afbeeldingen.
