@@ -38,5 +38,5 @@ bv:<br>
 yolo11n = yolo model versie 11 groote n (nano)<br>
 <br>
 extenties:<br>
--statquantxx = statisch gequantiseerd met xx * 100 afbeeldingen<br>
+-statquantxx = statisch gequantiseerd met xx * 100 afbeeldingen voor kalibratie.<br>
 -dynquant = dynamisch gequantiseerd
