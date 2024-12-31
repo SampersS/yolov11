@@ -24,7 +24,7 @@
 
 ## Map voor training
 
-Hey Andres, hier mag je je training code en modellen droppen.
+train2.py om het model te trainen op een dataset met maar één klasse ( personen ).
 
 ## map voor testMaterie
 - COCOimages: afbeeldingen die kunnen gebruikt worden voor statische quantizatie
