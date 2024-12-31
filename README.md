@@ -1,37 +1,42 @@
 # YOLOV11 Object detectie
 
-## Project structuur:
-- Map voor model creatie
-- Map voor model testing en evaluatie
-- Map voor training
-- Map voor testMaterie
+## onderwerpen in deze repo:
+- modellen downloaden & quantiseren
+- modellen valideren & benchmarken
+- modellen trainen
 
+Bestanden in de root:
+- resultaten.md: resultaten van validatie en benchmarking op verschillende modellen
+- Opdracht2_AI_Edge_Verslag.docx: Verslag voor in te dienen in school.
 
-## Map voor model creatie
+## Over YOLO
+Dit is voor object detectie.<br>
+Alle soorten modellen (.pt, .onnx, ...) kunnen worden geïmporteerd als YOLO object die als interface dient om aan interferentie te doen.<br>
+
+## Modellen downloaden & quantiseren
 - onnx_.py: omzetten van yolovxx.pt naar .onnx
+- preprocess_onnx.sh: onnx model voorbereiden voor quantizatie, wordt dan opgeslagen in temp.onnx.
 - create_onnx_static_quant.py: .onnx naar statisch gequantiseerd model omzetten
-- preprocess_onnx.sh: nodig voor create_onnx_static_quant.py
 - openvino.py: opzetten naar een openvino model
-- q-model.py: omzetten naar dynamisch gequantizeerd .onnx model
-- b-create.py: alle mogelijke modellen van pytorch en onnx aanmaken.
+- q-model.py: dynamisch quantiseren van een onnx model
+- b-create.py: alle mogelijke modellen van pytorch en onnx aanmaken. Je moet hiervoor geen extra bestanden uitvoeren.
+- openvinoQuant.py: Quantiseer een openvino model, maar werkt niet.
 
 ## Map voor model testing en evaluatie
 - test.py: interference time en ram & cpu gebruik tonen
 - test2.py: model grootes en laadtijd, interference time en ram & cpu gebruik tonen
-- test_models.py: ram & cpu gebruik tonen
-- model_validatie.py: accuraatheid van modellen testen
+- test_models.py: Interferentie tijd van alle modellen checken, wordt dan opgeslagen in log.txt
+- model_validatie.py: accuraatheid van alle modellen testen
 - coco.yaml: beschrijving van dataset nodig voor validatie
 
 ## Map voor training
+- train2.py om het model te trainen op een dataset met maar één klasse ( personen ).
 
-train2.py om het model te trainen op een dataset met maar één klasse ( personen ).
-
-## map voor testMaterie
-- COCOimages: afbeeldingen die kunnen gebruikt worden voor statische quantizatie
-- *.mp4: video's van de straat
-
-## root
-- main.py: uitvoer van model op video
-(na uitvoer b-create:)
-- yolo11x-statquant05.onnx: yolo 11 complexiteit x statisch gequantiseerd met 500 afbeeldingen.
-- yolo11x-statquant25.onnx: yolo 11 complexiteit x statisch gequantiseerd met 2500 afbeeldingen.
+## modelNamen
+yoloxxy = yolo model versie xx groote y<br>
+bv:<br>
+yolo11n = yolo model versie 11 groote n (nano)<br>
+<br>
+extenties:<br>
+-statquantxx = statisch gequantiseerd met xx * 100 afbeeldingen<br>
+-dynquant = dynamisch gequantiseerd
