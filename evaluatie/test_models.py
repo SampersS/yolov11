@@ -14,7 +14,7 @@ def kumiai_shimesu(naam):
         for image in images:
             gmodel.predict(image)
         ji = time.time() - kaishi_jikan
-        print(f"gemiddelde tijd voor interference bij afbeeldingen: {(ji:.4f)/ len(images)}")
+        print(f"gemiddelde tijd voor interference bij afbeeldingen: {ji/len(images)}")
 
         i = 0
         cap = cv2.VideoCapture("evalutait/traffic.mp4")
@@ -24,17 +24,9 @@ def kumiai_shimesu(naam):
             gmodel.track(frame)
             i += 1
         ji = time.time() - kaishi_jikan
-        print(f"gemiddelde tijd voor interference bij video: {(ji:.4f)/ 100}")
+        print(f"gemiddelde tijd voor interference bij video: {ji/100}")
         
 
 #benchmark(model="../yolo11n.pt", data="coco.yaml", imgsz=640, half=False#kumiai_shimesu("yolo11n")
 #kumiai_shimesu("yolo11s")
 #kumiai_shimesu("yolo11m")
-
-print(f"\n=======================================================\ndeze keer: {naam} {soutou_namae[jun]}")
-gmodel = YOLO(kumiai[jun])
-start_time = time.time()
-for image in images:
-    model.predict(image)
-ji = time.time() - start_time
-print(f"gemiddelde tijd voor interference bij afbeeldingen: {ji:.4f/ len(images)}")
