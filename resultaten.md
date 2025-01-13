@@ -21,4 +21,7 @@ Benchmark uitvoer omgeving: KDE Desktop.<br>
 | yolo11m-statquant05.onnx | 0.709 | 0.539 | 0.611 | 0.452 | 0.2935 | 0.2803 | 20M | ✔️ |
 | yolo11m-statquant25.onnx | 0.688 | 0.546 | 0.604 | 0.445 | (0.2935) | (0.2803) | (20M) | ✔️ |
 | yolo11m-dynquant.onnx | 0.722 | 0.612 | 0.668 | 0.504 | 0.5185 | 0.5048 | 20M | ✔️ |
+| yolo11n_openvino_model | - | - | - | - | 0.1808 | 0.08368 | 11M | ✔️ |
+| yolo11s_openvino_model | - | - | - | - | 0.2368 | 0.2112 | 37M | ✔️ |
+| yolo11m_openvino_model | - | - | - | - | 0.6342 | 0.6165 | 78M | ✔️ |
 | - | - | - | - | - | - | - | - | - |
